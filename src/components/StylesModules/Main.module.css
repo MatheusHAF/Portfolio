@@ -1,1 +1,4 @@
 @import url('./colors-pallet.css');
+main{
+    background-color: var(--bg-200);
+}

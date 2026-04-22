@@ -6,7 +6,7 @@ import styles from './StylesModules/Sobre.module.css';
 import { FaGithub,FaPython,FaReact,FaGitAlt,FaJava,FaHtml5,FaCss3Alt,FaNodeJs } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
 import { SiC,SiGreensock } from "react-icons/si";
-import { SiMysql } from "react-icons/si";
+import { SiPostgresql } from "react-icons/si";
 
 function Sobre() {
     const techRef = useRef(null);
@@ -101,7 +101,7 @@ function Sobre() {
                     <nav><SiC /><p>Linguagem C</p></nav>
                     <nav><FaNodeJs /><p>NodeJS</p></nav>
                     <nav><SiGreensock /><p>GSAP</p></nav>
-                    <nav><SiMysql/><p>MySQL</p></nav>
+                    <nav><SiPostgresql/><p>PostgreSQL</p></nav>
                 </div>
             </nav>
         </div>

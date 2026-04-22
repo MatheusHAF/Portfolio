@@ -1,27 +1,54 @@
 import React, { useRef } from "react";
 import "./App.css";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import Lenis from '@studio-freight/lenis'
+import { useEffect } from "react"
 
-import DotGrid from "./animations/DotGrid";
+import SoftAurora from "./animations/SoftAurora";
 
 import Navbar from "./components/NavbarMenu";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 
-gsap.registerPlugin(ScrollTrigger);
-
 function App() {
-  const svgBoxRef = useRef(null);
-  const pathRef = useRef(null);
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 0.8,
+      smooth: true
+    })
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+
+    return () => {
+      lenis.destroy()
+    }
+  }, [])
 
   return (
     <div className="App">
-      <div style={{ width: "100vw", height: "100vh", position: "fixed" }}>
-        <DotGrid />
-      </div>
+      <div className="div-background">
+      <SoftAurora
+        speed={1.0}
+        scale={1.5}
+        brightness={1}
+        color1="#7E57C2"
+        color2="#000000"
+        noiseFrequency={2.5}
+        noiseAmplitude={0.5}
+        bandHeight={0.5}
+        bandSpread={1}
+        octaveDecay={0.1}
+        layerOffset={0}
+        colorSpeed={0.5}
+        enableMouseInteraction
+        mouseInfluence={0.2}
+      />
+    </div>  
       <Navbar />
       <Main />
       <Footer />
