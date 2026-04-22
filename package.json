@@ -1,7 +1,7 @@
 {
   "name": "meu-portfolio",
   "version": "0.1.0",
-  "homepage": "https://MatheusHAF.github.io/Meu-Portfolio",
+  "homepage": "https://MatheusHAF.github.io/Portfolio",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
