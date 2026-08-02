@@ -55,6 +55,57 @@
     font-size: var(--txtmedium);
     transition: all var(--transition-time);
 }
+.btnsubmit:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.btnsubmit:disabled:hover{
+    background-color: var(--primary-100);
+    cursor: not-allowed;
+}
+
+/* Modal de status do formulário */
+.modal_success,
+.modal_error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    text-align: center;
+}
+.modal_success svg {
+    font-size: 60px;
+    color: #2e7d32;
+}
+.modal_error svg {
+    font-size: 60px;
+    color: #c62828;
+}
+.modal_success p,
+.modal_error p {
+    color: var(--text-100);
+    font-size: var(--txtsmall);
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+}
+.modal_btn {
+    background-color: var(--primary-100);
+    color: var(--bg-100);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 30px;
+    font-size: var(--txtsmall);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-time) ease;
+}
+.modal_btn:hover {
+    background-color: var(--text-100);
+    transform: translateY(-2px);
+}
+
 @media (max-width: 1000px){
 
 }
+

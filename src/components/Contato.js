@@ -1,7 +1,6 @@
 import styles from "./StylesModules/Contato.module.css";
 import Forms from "./Forms";
 import { useState } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import { FaSquareGithub, FaLinkedin } from "react-icons/fa6";
 import { IoMdMail, IoMdCloudDownload } from "react-icons/io";
@@ -10,6 +9,17 @@ import { FaInstagramSquare } from "react-icons/fa";
 
 function Contato() {
   const [copiado, setCopiado] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText("matheushenrique612@gmail.com");
+      setCopiado(true);
+      setTimeout(() => setCopiado(false), 2000);
+    } catch (err) {
+      console.error("Erro ao copiar e-mail:", err);
+    }
+  };
+
   return (
     <div id="contacts" className={styles.container}>
       <h1>Entre em contato comigo!</h1>
@@ -17,23 +27,26 @@ function Contato() {
         <div className={styles.left}>
           <h2>Minhas redes</h2>
           <nav>
-            <CopyToClipboard
-              text="matheushenrique612@gmail.com"
-              onCopy={() => {
-                setCopiado(true);
-                setTimeout(() => setCopiado(false), 2000);
+            <div
+              className={styles.copyNav}
+              role="button"
+              tabIndex={0}
+              onClick={copyEmail}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  copyEmail();
+                }
               }}
             >
-              <div className={styles.copyNav} role="button" tabIndex={0}>
-                <IoMdMail />
-                <span>
-                  <p>E-mail</p>
-                  <p className={styles.secondp}>
-                    {copiado ? "Copiado!" : "matheushenrique612@gmail.com"}
-                  </p>
-                </span>
-              </div>
-            </CopyToClipboard>
+              <IoMdMail />
+              <span>
+                <p>E-mail</p>
+                <p className={styles.secondp}>
+                  {copiado ? "Copiado!" : "matheushenrique612@gmail.com"}
+                </p>
+              </span>
+            </div>
           </nav>
           <nav>
             <a
@@ -63,7 +76,7 @@ function Contato() {
           </nav>
           <nav>
             <a
-              href="https://www.instagram.com/matheus.haf/"
+              href="https://www.instagram.com/suec.mh/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -76,7 +89,7 @@ function Contato() {
           </nav>
           <nav>
             <a
-              href="https://docs.google.com/document/d/1KOQpWFTzxla4UvnCnJPs_0ROCjG3KA0e0SXMCnW-IxY/export?format=pdf"
+              href="https://docs.google.com/document/d/1RJSIxEub6bAeiM768Ta6_LnWUN5LRiO-JrWx9-7FupU/export?format=pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.btn_download}

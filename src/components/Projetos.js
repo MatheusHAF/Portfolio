@@ -1,12 +1,16 @@
 import styles from './StylesModules/Projetos.module.css'
 
-import { Swiper } from 'swiper/react';
 import { register } from 'swiper/element/bundle';
-import { Navigation } from 'swiper/modules';
 
 import { dbcards } from '../data/dbcardsprojects';
 
 import { useState, useEffect } from 'react';
+
+import { CiGlobe } from "react-icons/ci";
+import { FaGithub } from "react-icons/fa";
+import { SlNote } from "react-icons/sl";
+
+import Modal from './Modal';
 
 import 'swiper/css/navigation';
 import 'swiper/swiper-bundle.css';
@@ -14,10 +18,11 @@ import 'swiper/swiper-bundle.css';
 
 register();
 function Projetos() {
-    const [slidesPerView, setSlidesPerView] = useState(3); // Defina o número inicial de slides por visualização
+    const [slidesPerView, setSlidesPerView] = useState(3);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [selectedProject, setSelectedProject] = useState(null);
 
     useEffect(() => {
-        // Verifique o tamanho da tela e atualize o número de slides exibidos conforme necessário
         const updateSlidesPerView = () => {
             if (window.innerWidth >= 975) {
                 setSlidesPerView(3);
@@ -30,17 +35,24 @@ function Projetos() {
             }
         };
 
-        // Execute a função de atualização quando a janela for redimensionada
         window.addEventListener('resize', updateSlidesPerView);
-
-        // Execute a função de atualização uma vez quando o componente for montado para definir o valor inicial
         updateSlidesPerView();
 
-        // Remova o ouvinte de evento ao desmontar o componente para evitar vazamento de memória
         return () => {
             window.removeEventListener('resize', updateSlidesPerView);
         };
     }, []);
+
+    const openModal = (item) => {
+        setSelectedProject(item);
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+        setSelectedProject(null);
+    };
+
     return (
         <div id='projects' className={styles.container}>
             <h1>Projetos</h1>
@@ -49,20 +61,69 @@ function Projetos() {
                 navigation={true}
             >
                 {dbcards.map((item, index) => (
-                    <swiper-slide>
-                        <a href={`${item.link}`} target='_blank' rel="noreferrer">
-                            <div key={index} className={styles.card}>
-                                <img src={item.image} alt={`${item.title}`} />
-                                <div>
-                                    <h2>{item.title}</h2>
-                                    <p>{item.desc}</p>
+                    <swiper-slide key={index}>
+                        <div className={styles.card}>
+                            <img src={item.image} alt={`${item.title}`} />
+                            <div>
+                                <h2>{item.title}</h2>
+                                <p>{item.tags.join(' • ')}</p>
+                                <div className={styles.div_links}>
+                                    <a
+                                        href={item.link || "#"}
+                                        target={item.link ? "_blank" : undefined}
+                                        rel="noopener noreferrer"
+                                        className={`${styles.btn} ${!item.link ? styles.btn_disabled : ""}`}
+                                        onClick={(e) => {
+                                            if (!item.link) e.preventDefault();
+                                        }}
+                                        aria-disabled={!item.link}
+                                    >
+                                        <CiGlobe />
+                                        <span className={styles.btn_text}>Visualizar</span>
+                                    </a>
+
+                                    <a
+                                        href={item.github || "#"}
+                                        target={item.github ? "_blank" : undefined}
+                                        rel="noopener noreferrer"
+                                        className={`${styles.btn} ${!item.github ? styles.btn_disabled : ""}`}
+                                        onClick={(e) => {
+                                            if (!item.github) e.preventDefault();
+                                        }}
+                                        aria-disabled={!item.github}
+                                    >
+                                        <FaGithub />
+                                        <span className={styles.btn_text}>GitHub</span>
+                                    </a>
+
+                                    <button
+                                        onClick={() => openModal(item)}
+                                        className={styles.btn}
+                                    >
+                                        <SlNote />
+                                        <span className={styles.btn_text}>Detalhes</span>
+                                    </button>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </swiper-slide>
                 ))}
             </swiper-container>
+
+            <Modal
+                isOpen={modalOpen}
+                onClose={closeModal}
+                title={selectedProject?.title}
+            >
+                {selectedProject && (
+                    <>
+                        <p className={styles.modal_desc}>{selectedProject.desc}</p>
+                        <p className={styles.modal_techs}>{selectedProject.techs}</p>
+                    </>
+                )}
+            </Modal>
         </div>
     );
 }
 export default Projetos
+

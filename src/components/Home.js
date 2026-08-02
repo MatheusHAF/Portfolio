@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import styles from "./StylesModules/Home.module.css";
 import { FaSquareGithub, FaLinkedin, FaSquareCaretDown  } from "react-icons/fa6";
 
@@ -83,7 +83,7 @@ function Home() {
         </p>
 
         <div className={styles.middle}>
-          <p>WEB | Front</p>
+          <p>Software</p>
           <p className={styles.picons}>
             <a
               href="https://github.com/MatheusHAF"
@@ -100,7 +100,7 @@ function Home() {
               <FaLinkedin />
             </a>
             <a
-              href="https://docs.google.com/document/d/1KOQpWFTzxla4UvnCnJPs_0ROCjG3KA0e0SXMCnW-IxY/export?format=pdf"
+              href="https://docs.google.com/document/d/1RJSIxEub6bAeiM768Ta6_LnWUN5LRiO-JrWx9-7FupU/export?format=pdf"
               target="_blank"
               rel="noreferrer"
             >

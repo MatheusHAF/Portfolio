@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Styles from "./StylesModules/Navbar.module.css";
 import logo from "../images/logo.png";
 
@@ -11,6 +11,14 @@ function NavbarMenu() {
 
   function handleScroll(e, id) {
     e.preventDefault();
+
+    if (!id) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      return;
+    }
 
     const section = document.getElementById(id);
     const navHeight = headerRef.current.offsetHeight;
@@ -48,14 +56,16 @@ function NavbarMenu() {
   return (
     <header ref={headerRef} className={Styles.header}>
       <div className={Styles.right}>
-        <a href="#">
+        <a href="#home" onClick={(e) => handleScroll(e, "")}>
           <img src={logo} alt="logo" />
         </a>
       </div>
       <div className={Styles.left}>
         <ul>
           <li>
-            <a href="#">Inicio</a>
+            <a href="#home" onClick={(e) => handleScroll(e, "")}>
+              Inicio
+            </a>
           </li>
           <li>
             <a href="#about" onClick={(e) => handleScroll(e, "about")}>

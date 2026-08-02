@@ -32,8 +32,90 @@ a {
 }
 .card p {
   color: var(--text-100);
-  font-size: var(--txtsmall);
+  font-size: var(--txtverysmall);
   width: 70%;
   text-align: justify;
   margin: 0 auto;
+  text-align: center;
 }
+
+/* Botões */
+.div_links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+.div_links a{
+  text-align: center;
+  
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 10px;
+  border: 2px solid var(--primary-100);
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-time) ease;
+  text-decoration: none;
+  background-color: #fff;
+  color: var(--primary-100);
+  overflow: hidden;
+  line-height: 1;
+}
+.btn:hover {
+  background-color: var(--primary-100);
+  color: #fff;
+  gap: 6px;
+  padding: 10px 16px;
+  transform: translateY(-2px);
+}
+
+.btn_text {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  white-space: nowrap;
+  transition: all var(--transition-time) ease;
+}
+.btn:hover .btn_text {
+  max-width: 150px;
+  opacity: 1;
+}
+
+.btn_disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+.btn_disabled:hover {
+    cursor: not-allowed;
+}
+
+/* Conteúdo do modal (a estrutura do modal fica em Modal.module.css) */
+.modal_desc {
+  color: var(--text-100);
+  font-size: var(--txtsmall);
+  line-height: 1.6;
+  text-align: justify;
+  margin: 0;
+}
+
+.modal_techs {
+  color: var(--primary-200);
+  font-size: var(--txtverysmall);
+  line-height: 1.6;
+  text-align: justify;
+  margin: 15px 0 0 0;
+  padding-top: 15px;
+  border-top: 1px solid var(--bg-300);
+}
+
