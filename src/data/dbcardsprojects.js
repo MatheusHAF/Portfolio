@@ -10,7 +10,7 @@ export const dbcards = [
     image: img1,
     desc: "Sistema completo para gerenciamento de portfólio desenvolvido para uma cliente real. A plataforma permite autenticação de administrador, cadastro e edição de projetos, upload e organização de imagens,gerenciamento do mídia kit e persistência dos dados em banco PostgreSQL através de uma API REST construída com Spring Boot.",
     techs:"Tecnologias utilizadas: React • TypeScript • Spring Boot • PostgreSQL • JPA/Hibernate • Spring Security • Cloudinary • DnD Kit• React Router • GSAP • Lenis",
-    link: "",
+    link: "https://laura-da-nica-portifolio.vercel.app/",
     github: "",
     tags: ["React","TypeScript","Spring Boot","PostgreSQL"],
   },
@@ -20,7 +20,7 @@ export const dbcards = [
     desc: "Plataforma desenvolvida para divulgação de um livro de impacto social sobre travestis catadoras de materiais recicláveis. O site permite a leitura do livro em PDF diretamente no navegador, apresenta informações sobre a iniciativa e oferece uma área destinada a doações, unindo tecnologia e acessibilidade para ampliar o alcance do projeto.",
     techs:"Tecnologias utilizadas: React • TypeScript • CSS • React Router • GSAP • Lenis",
     link: "",
-    github: "https://github.com/MatheusHAF",
+    github: "",
     tags: ["Em Desenvolvimento","React","TypeScript", "GSAP"],
   },
   {

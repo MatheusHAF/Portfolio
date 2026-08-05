@@ -3,10 +3,9 @@ import gsap from "gsap";
 
 import styles from './StylesModules/Sobre.module.css';
 
-import { FaGithub,FaPython,FaReact,FaGitAlt,FaJava,FaHtml5,FaCss3Alt,FaNodeJs } from "react-icons/fa";
+import { FaGithub,FaPython,FaReact,FaGitAlt,FaJava,FaNodeJs } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
-import { SiC,SiGreensock } from "react-icons/si";
-import { SiPostgresql } from "react-icons/si";
+import { SiC, SiGreensock, SiPostgresql, SiSpringboot, SiCloudinary } from "react-icons/si";
 
 function Sobre() {
     const techRef = useRef(null);
@@ -96,8 +95,8 @@ function Sobre() {
                     <nav><IoLogoJavascript /><p>JavaScript</p></nav>
                     <nav><FaGithub /><p>Github</p></nav>
 
-                    <nav><FaHtml5 /><p>HTML5</p></nav>
-                    <nav><FaCss3Alt /><p>CSS3</p></nav>
+                    <nav><SiSpringboot /><p>Spring Boot</p></nav>
+                    <nav><SiCloudinary /><p>Cloudinary</p></nav>
                     <nav><SiC /><p>Linguagem C</p></nav>
                     <nav><FaNodeJs /><p>NodeJS</p></nav>
                     <nav><SiGreensock /><p>GSAP</p></nav>
