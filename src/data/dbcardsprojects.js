@@ -19,7 +19,7 @@ export const dbcards = [
     image: img4,
     desc: "Plataforma desenvolvida para divulgação de um livro de impacto social sobre travestis catadoras de materiais recicláveis. O site permite a leitura do livro em PDF diretamente no navegador, apresenta informações sobre a iniciativa e oferece uma área destinada a doações, unindo tecnologia e acessibilidade para ampliar o alcance do projeto.",
     techs:"Tecnologias utilizadas: React • TypeScript • CSS • React Router • GSAP • Lenis",
-    link: "",
+    link: "https://matheushaf.github.io/olhar-pro-ceu/",
     github: "",
     tags: ["Em Desenvolvimento","React","TypeScript", "GSAP"],
   },
